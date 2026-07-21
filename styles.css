@@ -30,48 +30,63 @@ body{
     line-height:1.7;
 }
 
-nav{
-    position:sticky;
-    top:0;
-    z-index:1000;
-
-    backdrop-filter:blur(12px);
-    background:rgba(10,20,40,.75);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+    background: rgba(10,20,40,.75);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    width: 100%;
 }
 
-.nav-container{
-    width:min(1200px,92%);
-    margin:auto;
+.nav-container {
+    max-width: 1200px;
+    width: 92%;
+    margin: 0 auto;
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    display: flex;
+    align-items: center;
 
-    padding:16px 0;
+    /* Push menu to the far right */
+    justify-content: space-between;
+
+    min-height: 70px;
 }
 
-.logo{
-    color:var(--primary);
-    font-weight:bold;
-    font-size:1.4rem;
+.logo {
+    color: var(--primary);
+    font-size: 1.4rem;
+    font-weight: bold;
+    flex-shrink: 0;
 }
 
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:25px;
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 28px;
+
+    list-style: none;
+
+    /* This forces the menu to stay on the right */
+    margin-left: auto;
+    padding: 0;
 }
 
-nav a{
-    text-decoration:none;
-    color:white;
-    transition:.3s;
+nav li {
+    margin: 0;
 }
 
-nav a:hover{
-    color:var(--primary);
+nav a {
+    text-decoration: none;
+    color: white;
+    transition: .3s;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: var(--primary);
 }
 
 .container{
