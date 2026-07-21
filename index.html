@@ -83,21 +83,9 @@ Explore Research
 
 </div>
 
-<div>
-
-<svg viewBox="0 0 500 500">
-
-<defs>
-
-<linearGradient id="grad">
-
-<stop offset="0%" stop-color="#00d9ff"/>
-<stop offset="100%" stop-color="#ff3cac"/>
-
-</linearGradient>
-
-</defs>
-
+<div id="geometry-view">
+    
+</div>
 <polygon
 points="250,40 450,160 450,340 250,460 50,340 50,160"
 fill="none"
@@ -139,5 +127,74 @@ Designed with HTML, CSS, JavaScript and MathJax.
 
 </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+<script>
+const container = document.getElementById("geometry-view");
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(
+45,
+container.clientWidth / container.clientHeight,
+0.1,
+100
+);
+
+camera.position.z = 4;
+
+const renderer = new THREE.WebGLRenderer({
+alpha: true,
+antialias: true
+});
+
+renderer.setSize(
+container.clientWidth,
+container.clientHeight
+);
+
+container.appendChild(renderer.domElement);
+
+// Create an Icosahedron (20-faced polyhedron)
+const geometry = new THREE.IcosahedronGeometry(1.4, 1);
+
+const material = new THREE.MeshNormalMaterial({
+wireframe: true
+});
+
+const polyhedron = new THREE.Mesh(
+geometry,
+material
+);
+
+scene.add(polyhedron);
+
+function animate() {
+
+requestAnimationFrame(animate);
+
+polyhedron.rotation.x += 0.004;
+polyhedron.rotation.y += 0.006;
+
+renderer.render(scene, camera);
+
+}
+
+animate();
+
+window.addEventListener("resize", () => {
+
+camera.aspect =
+container.clientWidth / container.clientHeight;
+
+camera.updateProjectionMatrix();
+
+renderer.setSize(
+container.clientWidth,
+container.clientHeight
+);
+
+});
+</script>
 </body>
 </html>
