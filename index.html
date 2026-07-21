@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geometry Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="styles.css?v=2">
 
+    <!-- MathJax for rendering LaTeX -->
     <script>
         window.MathJax = {
             tex: {
@@ -30,20 +33,15 @@
 
 <section class="container hero">
     <div>
-        <section class="container hero">
-    <div>
-        <!-- ADD THIS LINE HERE -->
+        <!-- Profile Picture -->
         <img src="profile.jpg" alt="Kushal Mondal" class="profile-pic">
         
         <h1>Kushal Mondal</h1>
+        
         <div class="subtitle">
             Geometer • Differential Geometry • Curvature • Geometric Analysis
         </div>
         
-        <!-- ... rest of your text ... -->
-        <div class="subtitle">
-            Geometer • Differential Geometry • Curvature • Geometric Analysis
-        </div>
         <p>
             I investigate modern problems in geometry with particular interest in curvature,
             Riemannian manifolds, geometric structures, tensor analysis, and computational
@@ -53,6 +51,7 @@
             projects, and visual explorations of geometric ideas.
         </p>
 
+        <!-- Mathematical Equation Box -->
         <div class="math-box">
             \[
             R(X,Y)Z = \nabla_X\nabla_YZ - \nabla_Y\nabla_XZ - \nabla_{[X,Y]}Z
@@ -65,52 +64,39 @@
     <!-- 3D Canvas Container -->
     <div id="geometry-view"></div>
 
-    <!-- FIXED: Added opening SVG tag, viewBox, and gradient definition -->
-    <svg viewBox="0 0 500 500" width="100%" height="auto">
-        <defs>
-            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#00d9ff;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#ff3cac;stop-opacity:1" />
-            </linearGradient>
-        </defs>
-
-        <polygon points="250,40 450,160 450,340 250,460 50,340 50,160" fill="none" stroke="url(#grad)" stroke-width="4"/>
-        <circle cx="250" cy="250" r="150" fill="none" stroke="#39ff88" stroke-width="3"/>
-        <polygon points="250,90 390,170 390,330 250,410 110,330 110,170" fill="none" stroke="#8b5cf6" stroke-width="3"/>
-        <line x1="50" y1="160" x2="450" y2="340" stroke="#00d9ff"/>
-        <line x1="450" y1="160" x2="50" y2="340" stroke="#ff3cac"/>
-        <circle cx="250" cy="250" r="8" fill="#ffffff"/>
-    </svg>
 </section>
 
 <footer>
     Designed with HTML, CSS, JavaScript and MathJax.
 </footer>
 
+<!-- Three.js Library and Script -->
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script>
     const container = document.getElementById("geometry-view");
     const scene = new THREE.Scene();
     
-    // Adjusted camera aspect ratio calculation based on container if it has dimensions
-    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / (container.clientHeight || 300), 0.1, 100);
+    // Set up the camera
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
     camera.position.z = 4;
 
+    // Set up the renderer
     const renderer = new THREE.WebGLRenderer({
         alpha: true,
         antialias: true
     });
     
-    // Set a default height in case CSS hasn't sized the container yet
-    renderer.setSize(container.clientWidth || 300, container.clientHeight || 300);
+    renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
+    // Create the Icosahedron (20-faced polyhedron)
     const geometry = new THREE.IcosahedronGeometry(1.4, 1);
     const material = new THREE.MeshNormalMaterial({ wireframe: true });
     const polyhedron = new THREE.Mesh(geometry, material);
     
     scene.add(polyhedron);
 
+    // Animation Loop
     function animate() {
         requestAnimationFrame(animate);
         polyhedron.rotation.x += 0.004;
@@ -120,6 +106,7 @@
 
     animate();
 
+    // Make the 3D canvas responsive on window resize
     window.addEventListener("resize", () => {
         if(container.clientWidth > 0 && container.clientHeight > 0) {
             camera.aspect = container.clientWidth / container.clientHeight;
