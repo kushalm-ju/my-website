@@ -1,200 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Geometry Portfolio</title>
-
-<link rel="stylesheet" href="styles.css">
-
-<script>
-window.MathJax = {
-tex: {
-inlineMath: [['$', '$'], ['\\(', '\\)']]
-}
-};
-</script>
-
-<script
-id="MathJax-script"
-async
-src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
 <body>
 
 <nav>
-
-<div class="nav-container">
-
-<div class="logo">Geometry</div>
-
-<ul>
-
-<li><a href="index.html">Home</a></li>
-<li><a href="research.html">Research</a></li>
-<li><a href="projects.html">Projects</a></li>
-
-</ul>
-
-</div>
-
+    <div class="nav-container">
+        <div class="logo">Geometry</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+    </div>
 </nav>
 
 <section class="container hero">
+    <div>
+        <h1>Kushal Mondal</h1>
+        <div class="subtitle">
+            Geometer • Differential Geometry • Curvature • Geometric Analysis
+        </div>
+        <p>
+            I investigate modern problems in geometry with particular interest in curvature,
+            Riemannian manifolds, geometric structures, tensor analysis, and computational
+            approaches to differential geometry.
 
-<div>
+            This website collects my mathematical research, publications, computational
+            projects, and visual explorations of geometric ideas.
+        </p>
 
-    <h1>Kushal Mondal</h1>
+        <div class="math-box">
+            \[
+            R(X,Y)Z = \nabla_X\nabla_YZ - \nabla_Y\nabla_XZ - \nabla_{[X,Y]}Z
+            \]
+        </div>
 
-<div class="subtitle">
-Geometer • Differential Geometry • Curvature • Geometric Analysis
-</div>
+        <a class="button" href="research.html">Explore Research</a>
+    </div>
 
-<p>
+    <!-- 3D Canvas Container -->
+    <div id="geometry-view"></div>
 
-I investigate modern problems in geometry with particular interest in curvature,
-Riemannian manifolds, geometric structures, tensor analysis, and computational
-approaches to differential geometry.
+    <!-- FIXED: Added opening SVG tag, viewBox, and gradient definition -->
+    <svg viewBox="0 0 500 500" width="100%" height="auto">
+        <defs>
+            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#00d9ff;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#ff3cac;stop-opacity:1" />
+            </linearGradient>
+        </defs>
 
-This website collects my mathematical research, publications, computational
-projects, and visual explorations of geometric ideas.
-
-</p>
-
-<div class="math-box">
-
-\[
-R(X,Y)Z=
-\nabla_X\nabla_YZ-
-\nabla_Y\nabla_XZ-
-\nabla_{[X,Y]}Z
-\]
-
-</div>
-
-<a class="button" href="research.html">
-Explore Research
-</a>
-
-</div>
-
-<div id="geometry-view">
-    
-</div>
-<polygon
-points="250,40 450,160 450,340 250,460 50,340 50,160"
-fill="none"
-stroke="url(#grad)"
-stroke-width="4"/>
-
-<circle
-cx="250"
-cy="250"
-r="150"
-fill="none"
-stroke="#39ff88"
-stroke-width="3"/>
-
-<polygon
-points="250,90 390,170 390,330 250,410 110,330 110,170"
-fill="none"
-stroke="#8b5cf6"
-stroke-width="3"/>
-
-<line x1="50" y1="160" x2="450" y2="340"
-stroke="#00d9ff"/>
-
-<line x1="450" y1="160" x2="50" y2="340"
-stroke="#ff3cac"/>
-
-<circle cx="250" cy="250" r="8"
-fill="#ffffff"/>
-
-</svg>
-
-</div>
-
+        <polygon points="250,40 450,160 450,340 250,460 50,340 50,160" fill="none" stroke="url(#grad)" stroke-width="4"/>
+        <circle cx="250" cy="250" r="150" fill="none" stroke="#39ff88" stroke-width="3"/>
+        <polygon points="250,90 390,170 390,330 250,410 110,330 110,170" fill="none" stroke="#8b5cf6" stroke-width="3"/>
+        <line x1="50" y1="160" x2="450" y2="340" stroke="#00d9ff"/>
+        <line x1="450" y1="160" x2="50" y2="340" stroke="#ff3cac"/>
+        <circle cx="250" cy="250" r="8" fill="#ffffff"/>
+    </svg>
 </section>
 
 <footer>
-
-Designed with HTML, CSS, JavaScript and MathJax.
-
+    Designed with HTML, CSS, JavaScript and MathJax.
 </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script>
-const container = document.getElementById("geometry-view");
+    const container = document.getElementById("geometry-view");
+    const scene = new THREE.Scene();
+    
+    // Adjusted camera aspect ratio calculation based on container if it has dimensions
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / (container.clientHeight || 300), 0.1, 100);
+    camera.position.z = 4;
 
-const scene = new THREE.Scene();
+    const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true
+    });
+    
+    // Set a default height in case CSS hasn't sized the container yet
+    renderer.setSize(container.clientWidth || 300, container.clientHeight || 300);
+    container.appendChild(renderer.domElement);
 
-const camera = new THREE.PerspectiveCamera(
-45,
-container.clientWidth / container.clientHeight,
-0.1,
-100
-);
+    const geometry = new THREE.IcosahedronGeometry(1.4, 1);
+    const material = new THREE.MeshNormalMaterial({ wireframe: true });
+    const polyhedron = new THREE.Mesh(geometry, material);
+    
+    scene.add(polyhedron);
 
-camera.position.z = 4;
+    function animate() {
+        requestAnimationFrame(animate);
+        polyhedron.rotation.x += 0.004;
+        polyhedron.rotation.y += 0.006;
+        renderer.render(scene, camera);
+    }
 
-const renderer = new THREE.WebGLRenderer({
-alpha: true,
-antialias: true
-});
+    animate();
 
-renderer.setSize(
-container.clientWidth,
-container.clientHeight
-);
-
-container.appendChild(renderer.domElement);
-
-// Create an Icosahedron (20-faced polyhedron)
-const geometry = new THREE.IcosahedronGeometry(1.4, 1);
-
-const material = new THREE.MeshNormalMaterial({
-wireframe: true
-});
-
-const polyhedron = new THREE.Mesh(
-geometry,
-material
-);
-
-scene.add(polyhedron);
-
-function animate() {
-
-requestAnimationFrame(animate);
-
-polyhedron.rotation.x += 0.004;
-polyhedron.rotation.y += 0.006;
-
-renderer.render(scene, camera);
-
-}
-
-animate();
-
-window.addEventListener("resize", () => {
-
-camera.aspect =
-container.clientWidth / container.clientHeight;
-
-camera.updateProjectionMatrix();
-
-renderer.setSize(
-container.clientWidth,
-container.clientHeight
-);
-
-});
+    window.addEventListener("resize", () => {
+        if(container.clientWidth > 0 && container.clientHeight > 0) {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+    });
 </script>
 </body>
 </html>
