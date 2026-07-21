@@ -7,6 +7,7 @@
     --cyan: #06B6D4; /* Vibrant Cyan */
     --magenta: #EC4899; /* Energetic Magenta */
     --cyan-glow: rgba(6, 182, 212, 0.4);
+    --mag-glow: rgba(236, 72, 153, 0.5);
     --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -134,22 +135,35 @@ body {
     background-color: rgba(236, 72, 153, 0.1);
 }
 
-/* SVG Animation */
+/* Photo Styling */
 .hero-visual {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.geo-svg {
+.photo-hex-wrap {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    /* Create a geometric halo using drop-shadow for high performance */
+    filter: drop-shadow(0 0 10px var(--cyan-glow)) drop-shadow(0 0 20px var(--mag-glow));
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.profile-photo {
     width: 100%;
-    max-width: 400px;
-    animation: slow-spin 20s linear infinite;
+    height: 100%;
+    object-fit: cover; /* Ensures image isn't stretched */
+    border-radius: 50%; /* Circular mask */
+    border: 4px solid var(--bg-card); /* Strong contrast border against glow */
 }
 
-@keyframes slow-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+/* Pulsating glow animation for dynamic effect */
+@keyframes pulse-glow {
+    0%, 100% { filter: drop-shadow(0 0 10px var(--cyan-glow)) drop-shadow(0 0 20px var(--mag-glow)); }
+    50% { filter: drop-shadow(0 0 15px var(--cyan-glow)) drop-shadow(0 0 30px var(--magenta)); }
 }
 
 /* Content Sections (Research & Projects) */
@@ -265,7 +279,7 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
-        flex-direction: column;
+        flex-direction: column-reverse; /* Put photo above text on mobile */
         text-align: center;
         padding: 3rem 5%;
     }
@@ -278,5 +292,12 @@ body {
     }
     .content-section {
         padding: 3rem 5%;
+    }
+    .hero-visual {
+        margin-bottom: 2rem;
+    }
+    .photo-hex-wrap {
+        width: 240px;
+        height: 240px;
     }
 }
