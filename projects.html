@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Differential Geometry Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- MathJax for LaTeX rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Geom<span>Hub</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+        </ul>
+    </nav>
+
+    <main class="content-section">
+        <h2>Computational Geometry & Visualizations</h2>
+        <p>Translating abstract geometric structures into functional algorithms and interactive visualizations.</p>
+        
+        <div class="grid-container">
+            <article class="card">
+                <h3>Delaunay Triangulation Engine</h3>
+                <p>A high-performance C++ implementation of the Bowyer-Watson algorithm for generating Delaunay triangulations and Voronoi diagrams from dense point clouds in \( \mathbb{R}^3 \).</p>
+                <ul class="tech-stack">
+                    <li>C++</li>
+                    <li>OpenGL</li>
+                    <li>Computational Geometry</li>
+                </ul>
+                <a href="https://github.com" target="_blank" class="card-link">View Source Code &rarr;</a>
+            </article>
+
+            <article class="card">
+                <h3>Spacetime Metric Visualizer</h3>
+                <p>A web-based tool for plotting geodesics around simulated mass distributions. Calculates geodesic equations dynamically using Runge-Kutta (RK4) integration:</p>
+                <div class="math-block">
+                    $$ \frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\alpha\beta} \frac{dx^\alpha}{d\tau} \frac{dx^\beta}{d\tau} = 0 $$
+                </div>
+                <ul class="tech-stack">
+                    <li>JavaScript</li>
+                    <li>Three.js</li>
+                    <li>Tensor Calculus</li>
+                </ul>
+                <a href="https://github.com" target="_blank" class="card-link">View Repository &rarr;</a>
+            </article>
+        </div>
+    </main>
+</body>
+</html>
