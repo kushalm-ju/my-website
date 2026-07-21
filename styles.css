@@ -10,13 +10,13 @@
     --bg: #ffffff;
     --bg-alt: #f8fafc; /* Very light grey/white for contrast */
     
-    --primary: #00c853; /* Vibrant Green */
-    --secondary: #00e676; /* Lighter Green for gradients */
+    --primary: #ff0044; /* Vibrant Green */
+    --secondary: #ff4d79; /* Lighter Green for gradients */
     
     --text: #1e293b; /* Dark slate for high readability */
     --muted: #64748b; /* Medium grey for paragraphs */
     
-    --shadow: rgba(0, 200, 83, 0.2); /* Soft green shadow */
+    --shadow: rgba(255, 0, 68, 0.2); /* Soft green shadow */
     --border: #e2e8f0;
 }
 
