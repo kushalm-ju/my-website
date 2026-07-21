@@ -1,51 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research | Differential Geometry Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- MathJax for LaTeX rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Research</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<script>
+window.MathJax={
+tex:{
+inlineMath:[['$','$'],['\\(','\\)']]
+}
+};
+</script>
+
+<script async
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
 </head>
+
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">Geom<span>Hub</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="research.html" class="active">Research</a></li>
-            <li><a href="projects.html">Projects</a></li>
-        </ul>
-    </nav>
 
-    <main class="content-section">
-        <h2>Research & Pre-prints</h2>
-        <p>My theoretical work focuses on Riemannian metrics, geometric analysis, and flow equations on smooth manifolds.</p>
-        
-        <div class="grid-container">
-            <article class="card border-gradient">
-                <h3>Convergence of Ricci Flow on Compact Manifolds</h3>
-                <span class="tag">Pre-print</span>
-                <p>Investigating the singularity models and long-time behavior of the Ricci flow equation:</p>
-                <div class="math-block">
-                    $$ \frac{\partial}{\partial t} g_{ij} = -2 R_{ij} $$
-                </div>
-                <p>This paper examines structural limits when the scalar curvature remains bounded.</p>
-                <a href="https://arxiv.org" target="_blank" class="card-link">Read on arXiv &rarr;</a>
-            </article>
+<nav>
 
-            <article class="card border-gradient">
-                <h3>Classification of Gradient Ricci Solitons</h3>
-                <span class="tag">Published</span>
-                <p>A systematic exploration of steady and expanding gradient Ricci solitons satisfying the equation:</p>
-                <div class="math-block">
-                    $$ R_{ij} + \nabla_i \nabla_j f = \lambda g_{ij} $$
-                </div>
-                <p>We provide new rigidity results for dimension \( n \geq 4 \) under specific curvature assumptions.</p>
-                <a href="https://arxiv.org" target="_blank" class="card-link">Read on arXiv &rarr;</a>
-            </article>
-        </div>
-    </main>
+<div class="nav-container">
+
+<div class="logo">Geometry</div>
+
+<ul>
+
+<li><a href="index.html">Home</a></li>
+<li><a href="research.html">Research</a></li>
+<li><a href="projects.html">Projects</a></li>
+
+</ul>
+
+</div>
+
+</nav>
+
+<section class="container">
+
+<h1>Research</h1>
+
+<div class="card">
+
+<span class="badge">
+Published Papers
+</span>
+
+<ul class="list">
+
+<li>
+
+<strong>Paper Title</strong><br>
+
+Journal Name (Year)
+
+</li>
+
+<li>
+
+<strong>Paper Title</strong><br>
+
+Journal Name (Year)
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<span class="badge">
+Preprints
+</span>
+
+<ul class="list">
+
+<li>
+
+<a href="#">
+Preprint on arXiv
+</a>
+
+</li>
+
+<li>
+
+<a href="#">
+Another arXiv manuscript
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<span class="badge">
+Current Research Topics
+</span>
+
+<ul class="list">
+
+<li>Differential Geometry</li>
+
+<li>Ricci Solitons</li>
+
+<li>Almost Contact Geometry</li>
+
+<li>Curvature Tensors</li>
+
+<li>Geometric Flows</li>
+
+<li>Computational Differential Geometry</li>
+
+</ul>
+
+</div>
+
+<div class="math-box">
+
+Example identity:
+
+\[
+\operatorname{Ric}(X,Y)=
+\sum_i
+g(R(e_i,X)Y,e_i)
+\]
+
+</div>
+
+</section>
+
+<footer>
+
+Research Portfolio
+
+</footer>
+
 </body>
+
 </html>
