@@ -1,18 +1,23 @@
 :root {
-    /* Brighter, richer backgrounds */
-    --bg: #10182b;
-    --bg2: #1a2642;
-    --card: #202e4c;
+    /* ========================================= */
+    /* COLOR PALETTE                             */
+    /* To make this a RED & WHITE theme, change: */
+    /* --primary to: #ff0044                     */
+    /* --secondary to: #ff4d79                   */
+    /* --shadow to: rgba(255, 0, 68, 0.2)        */
+    /* ========================================= */
     
-    /* Maximum brightness neon accents */
-    --primary: #00f0ff;
-    --secondary: #a855f7;
-    --accent: #ff1060;
-    --green: #22ff77;
+    --bg: #ffffff;
+    --bg-alt: #f8fafc; /* Very light grey/white for contrast */
     
-    /* Crisper text colors for higher contrast */
-    --text: #ffffff;
-    --muted: #cbd5e1;
+    --primary: #00c853; /* Vibrant Green */
+    --secondary: #00e676; /* Lighter Green for gradients */
+    
+    --text: #1e293b; /* Dark slate for high readability */
+    --muted: #64748b; /* Medium grey for paragraphs */
+    
+    --shadow: rgba(0, 200, 83, 0.2); /* Soft green shadow */
+    --border: #e2e8f0;
 }
 
 * {
@@ -27,10 +32,9 @@ html {
 
 body {
     font-family: Segoe UI, Roboto, Arial, sans-serif;
-    background: 
-        radial-gradient(circle at top left, #234b8c 0%, transparent 35%),
-        radial-gradient(circle at bottom right, #7b1fa2 0%, transparent 35%),
-        var(--bg);
+    background: var(--bg);
+    /* Subtle background gradient to make it feel premium, not flat */
+    background-image: radial-gradient(circle at top right, var(--bg-alt) 0%, var(--bg) 60%);
     color: var(--text);
     line-height: 1.7;
 }
@@ -40,11 +44,12 @@ nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    background: rgba(16, 24, 43, 0.75);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid var(--border);
     width: 100%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
 .nav-container {
@@ -59,10 +64,10 @@ nav {
 
 .logo {
     color: var(--primary);
-    font-size: 1.4rem;
-    font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: 800;
     flex-shrink: 0;
-    text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+    letter-spacing: -0.5px;
 }
 
 nav ul {
@@ -75,20 +80,15 @@ nav ul {
     padding: 0;
 }
 
-nav li {
-    margin: 0;
-}
-
 nav a {
     text-decoration: none;
-    color: white;
+    color: var(--muted);
     transition: 0.3s;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 nav a:hover {
     color: var(--primary);
-    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
 }
 
 /* Main Layout */
@@ -111,83 +111,73 @@ nav a:hover {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    object-fit: cover; /* Prevents stretching */
-    border: 3px solid var(--primary);
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
-    margin-bottom: 20px;
-    transition: 0.3s;
+    object-fit: cover;
+    border: 4px solid var(--bg);
+    outline: 4px solid var(--primary); /* Creates a crisp ring effect */
+    box-shadow: 0 10px 30px var(--shadow);
+    margin-bottom: 25px;
+    transition: 0.4s ease;
 }
 
 .profile-pic:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
-    border-color: var(--text);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--shadow);
 }
 
 /* Typography */
 h1 {
-    font-size: 3.2rem;
-    margin-bottom: 15px;
-}
-
-h2 {
-    color: var(--primary);
-    margin-bottom: 20px;
-    margin-top: 30px;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    color: var(--text);
+    letter-spacing: -1px;
 }
 
 .subtitle {
-    color: var(--green);
+    color: var(--primary);
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-weight: 600;
+    margin-bottom: 25px;
 }
 
 p {
     color: var(--muted);
+    font-size: 1.05rem;
 }
 
-/* Components */
-.card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 18px;
-    padding: 28px;
-    margin: 20px 0;
-    transition: 0.35s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    border-color: var(--primary);
-    box-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
-}
-
+/* Button */
 .button {
     display: inline-block;
-    margin-top: 30px;
+    margin-top: 35px;
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
-    padding: 14px 28px;
+    padding: 15px 32px;
     text-decoration: none;
     border-radius: 50px;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+    font-size: 1.1rem;
+    box-shadow: 0 10px 25px var(--shadow);
     transition: 0.3s;
+    border: none;
 }
 
 .button:hover {
-    transform: scale(1.04);
-    box-shadow: 0 6px 20px rgba(0, 240, 255, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px var(--shadow);
 }
 
+/* Mathematical Equation Box */
 .math-box {
-    margin-top: 25px;
-    background: #0b1320;
-    padding: 20px;
-    border-left: 4px solid var(--accent);
-    border-radius: 10px;
+    margin-top: 30px;
+    background: var(--bg-alt);
+    padding: 25px;
+    border-left: 5px solid var(--primary);
+    border-radius: 12px;
     overflow-x: auto;
     overflow-y: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
 /* 3D Geometry Canvas */
@@ -197,10 +187,10 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 3px solid var(--primary);
-    box-shadow: 0 0 35px rgba(0, 240, 255, 0.25);
+    border-radius: 24px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.04);
     overflow: hidden;
 }
 
@@ -210,24 +200,14 @@ p {
     display: block;
 }
 
-/* Footer & Lists */
+/* Footer */
 footer {
     margin-top: 80px;
     text-align: center;
-    color: #93a4c4;
-    padding: 30px;
-}
-
-ul.list {
-    padding-left: 20px;
-}
-
-.list li {
-    margin: 12px 0;
-}
-
-a {
-    color: var(--primary);
+    color: var(--muted);
+    padding: 40px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-alt);
 }
 
 /* Mobile Responsiveness */
@@ -238,16 +218,16 @@ a {
     }
 
     nav ul {
-        gap: 12px;
-        font-size: 0.9rem;
+        gap: 15px;
+        font-size: 0.95rem;
     }
 
     h1 {
-        font-size: 2.4rem;
+        font-size: 2.8rem;
     }
     
     .profile-pic {
-        margin: 0 auto 20px auto;
+        margin: 0 auto 25px auto;
         display: block;
     }
 }
