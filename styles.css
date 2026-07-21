@@ -135,7 +135,7 @@ body {
     background-color: rgba(236, 72, 153, 0.1);
 }
 
-/* Photo Styling */
+/* --- Simple Photo Styling --- */
 .hero-visual {
     flex: 1;
     display: flex;
@@ -143,29 +143,26 @@ body {
     align-items: center;
 }
 
-.photo-hex-wrap {
-    position: relative;
-    width: 320px;
-    height: 320px;
-    /* Create a geometric halo using drop-shadow for high performance */
-    filter: drop-shadow(0 0 10px var(--cyan-glow)) drop-shadow(0 0 20px var(--mag-glow));
-    animation: pulse-glow 4s ease-in-out infinite;
+.simple-photo-wrap {
+    /* Set to 260px so it isn't too big */
+    width: 260px;
+    height: 260px;
+    max-width: 100%; 
+    border-radius: 50%;
+    /* Creates a gradient ring around the photo */
+    background: linear-gradient(135deg, var(--cyan), var(--magenta));
+    padding: 3px; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
-.profile-photo {
+.simple-photo {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures image isn't stretched */
-    border-radius: 50%; /* Circular mask */
-    border: 4px solid var(--bg-card); /* Strong contrast border against glow */
+    object-fit: cover; 
+    border-radius: 50%;
+    /* Dark gap between your photo and the gradient ring */
+    border: 5px solid var(--bg-dark); 
 }
-
-/* Pulsating glow animation for dynamic effect */
-@keyframes pulse-glow {
-    0%, 100% { filter: drop-shadow(0 0 10px var(--cyan-glow)) drop-shadow(0 0 20px var(--mag-glow)); }
-    50% { filter: drop-shadow(0 0 15px var(--cyan-glow)) drop-shadow(0 0 30px var(--magenta)); }
-}
-
 /* Content Sections (Research & Projects) */
 .content-section {
     padding: 4rem 10%;
@@ -296,7 +293,7 @@ body {
     .hero-visual {
         margin-bottom: 2rem;
     }
-    .photo-hex-wrap {
+    .simple-photo-wrap {
         width: 240px;
         height: 240px;
     }
