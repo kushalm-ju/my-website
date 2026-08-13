@@ -1,129 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Projects | Geometry Portfolio</title>
-
+    <title>Geometry Sandbox - Projects</title>
     <link rel="stylesheet" href="styles.css">
-
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-            }
-        };
-    </script>
-
-    <script
-        id="MathJax-script"
-        async
-        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
 </head>
-
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Geometry</div>
+<nav>
+    <div class="nav-container">
+        <div class="logo">Geometry</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="links.html">Links</a></li>
+            <li><a href="guestbook.html">Guestbook</a></li>
+        </ul>
+    </div>
+</nav>
 
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="projects.html">Projects</a></li>
-            </ul>
-        </div>
-    </nav>
+<section class="container hero">
+    <h1>Interactive Geometry Sandbox</h1>
+    <div class="subtitle">Computational Rendering • Real-time Topology</div>
+    <p>
+        Select a shape below to update the rendering engine. This sandbox uses Three.js to visualize different topological structures in real-time.
+    </p>
 
-    <main class="container">
+    <!-- 3D Canvas -->
+    <div id="geometry-view"></div>
 
-        <h1>Computational Projects</h1>
+    <!-- Web 1.0 Control Panel -->
+    <div class="math-box" style="margin-top: 10px;">
+        <strong>[ RENDER CONTROLS ]</strong><br><br>
+        <button class="button" onclick="changeShape('icosahedron')">Icosahedron</button>
+        <button class="button" onclick="changeShape('torus')">Torus (Ring)</button>
+        <button class="button" onclick="changeShape('cube')">Hypercube Proj.</button>
+    </div>
+</section>
 
-        <div class="grid">
+<footer>Designed with HTML, CSS, JavaScript and MathJax.</footer>
 
-            <div class="card">
-                <h2>Mesh Optimization</h2>
-                <p>
-                    Implementation of Geometric Element Transformation Methods (GETMe)
-                    for tetrahedral and polyhedral mesh smoothing.
-                </p>
-            </div>
-
-            <div class="card">
-                <h2>Curvature Visualization</h2>
-                <p>
-                    Interactive visualization of curvature tensors,
-                    geodesics, and Riemannian manifolds using Python
-                    and Mathematica.
-                </p>
-            </div>
-
-            <div class="card">
-                <h2>Convex Geometry</h2>
-                <p>
-                    Algorithms for convex hulls,
-                    Voronoi diagrams,
-                    Delaunay triangulations,
-                    and polygon processing.
-                </p>
-            </div>
-
-            <div class="card">
-                <h2>Mathematical Graphics</h2>
-                <p>
-                    High-quality visualizations of polyhedra,
-                    manifolds, surfaces,
-                    and geometric transformations.
-                </p>
-            </div>
-
-            <div class="card">
-                <h2>Code Repositories</h2>
-                <p>
-                    GitHub:
-                    <br><br>
-
-                    <a href="https://github.com/yourusername"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        https://github.com/yourusername
-                    </a>
-                </p>
-            </div>
-
-            <div class="card">
-                <h2>Current Work</h2>
-                <p>
-                    Development of computational tools for differential geometry,
-                    symbolic tensor computations,
-                    and mathematical visualization.
-                </p>
-            </div>
-
-        </div>
-
-        <div class="math-box">
-
-            \[
-            \Delta_g f
-            =
-            \operatorname{div}(\nabla f)
-            \]
-
-        </div>
-
-    </main>
-
-    <footer>
-        Mathematical Computing &amp; Visualization
-    </footer>
-<!-- Link to your external JavaScript file -->
+<!-- Scripts -->
 <script src="script.js"></script>
-</body>
-</html>
-</body>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script>
+    const container = document.getElementById("geometry-view");
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+    camera.position.z = 5;
 
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    container.appendChild(renderer.domElement);
+
+    const material = new THREE.MeshBasicMaterial({ color: 0x0000EE, wireframe: true });
+    let currentGeometry = new THREE.IcosahedronGeometry(1.4, 1);
+    let polyhedron = new THREE.Mesh(currentGeometry, material);
+    scene.add(polyhedron);
+
+    // Function to change the shape when buttons are clicked
+    function changeShape(type) {
+        scene.remove(polyhedron);
+        currentGeometry.dispose(); // Cleans up memory
+        
+        if (type === 'icosahedron') currentGeometry = new THREE.IcosahedronGeometry(1.4, 1);
+        if (type === 'torus') currentGeometry = new THREE.TorusGeometry(1.2, 0.4, 12, 48);
+        if (type === 'cube') currentGeometry = new THREE.BoxGeometry(2, 2, 2);
+        
+        polyhedron = new THREE.Mesh(currentGeometry, material);
+        scene.add(polyhedron);
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+        polyhedron.rotation.x += 0.004;
+        polyhedron.rotation.y += 0.006;
+        renderer.render(scene, camera);
+    }
+    animate();
+</script>
+</body>
 </html>
