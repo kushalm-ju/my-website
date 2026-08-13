@@ -227,12 +227,17 @@ footer {
 }
 /* --- Retro Guestbook Form Styling --- */
 .retro-input {
-    background-color: #ffffff;
+    background-color: #e0e0e0; /* A soft light grey instead of glaring white */
     border: 2px inset #ffffff;
     font-family: "Courier New", Courier, monospace;
     font-size: 1rem;
     padding: 5px;
     margin-top: 5px;
+}
+
+.retro-input:focus {
+    background-color: #ffffe0; /* A slightly softer pale yellow for when typing */
+    outline: none;
 }
 
 .retro-input:focus {
