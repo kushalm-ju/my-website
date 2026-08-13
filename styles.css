@@ -219,3 +219,9 @@ footer {
         margin-top: 15px;
     }
 }
+/* --- Interactive Word Hover Effect --- */
+.hover-word:hover {
+    color: #008000; /* Classic Web safe green */
+    background-color: #e5ffe5; /* Slight highlight background to make it pop */
+    cursor: default;
+}
