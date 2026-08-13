@@ -13,14 +13,18 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-color);
-    color: var(--term-green);
-    font-family: 'VT323', monospace;
-    font-size: 22px; /* VT323 needs to be a bit larger to read well */
+    background-color: var(--bg-gray);
+    color: #000000;
+    font-family: "Times New Roman", Times, serif;
+    margin: 20px auto;
+    max-width: 800px; 
+    padding: 0 15px;
     line-height: 1.4;
-    text-shadow: var(--glow); /* Makes all text glow slightly */
+    
+    /* ADD THESE 3 LINES TO FIX BLURRINESS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* --- CRT Scanline Overlay --- */
