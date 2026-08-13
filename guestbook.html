@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guestbook - Geometry Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">Geometry</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="links.html">Links</a></li>
+            <li><a href="guestbook.html">Guestbook</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="container hero">
+    <h1>Sign My Guestbook</h1>
+    <p>
+        Thanks for visiting my corner of the web! Please leave a message below to let me know you stopped by, or feel free to reach out to discuss curvature, tensors, or web design.
+    </p>
+
+    <div class="math-box" style="text-align: left; background-color: #c0c0c0;">
+        <fieldset style="border: 2px groove #ffffff; padding: 20px;">
+            <legend style="font-weight: bold;">[ Add a New Entry ]</legend>
+            
+            <form action="#" method="POST">
+                <p>
+                    <label for="name">Name / Alias:</label><br>
+                    <input type="text" id="name" name="name" size="40" class="retro-input">
+                </p>
+                
+                <p>
+                    <label for="email">Email Address (Optional):</label><br>
+                    <input type="email" id="email" name="email" size="40" class="retro-input">
+                </p>
+
+                <p>
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="6" cols="50" class="retro-input"></textarea>
+                </p>
+
+                <input type="submit" value="Submit Entry" class="button">
+                <input type="reset" value="Clear Form" class="button">
+            </form>
+        </fieldset>
+    </div>
+
+</section>
+
+<footer>Designed with HTML, CSS, JavaScript and MathJax.</footer>
+<script src="script.js"></script>
+</body>
+</html>
