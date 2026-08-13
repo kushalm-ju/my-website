@@ -231,7 +231,8 @@ footer {
 }
 /* --- Retro Guestbook Form Styling --- */
 .retro-input {
-    background-color: #e0e0e0; /* A soft light grey instead of glaring white */
+    background-color: #000000; /* Changes the box to pure black */
+    color: #ffffff; /* Makes the text you type white so it is readable */
     border: 2px inset #ffffff;
     font-family: "Courier New", Courier, monospace;
     font-size: 1rem;
@@ -240,7 +241,7 @@ footer {
 }
 
 .retro-input:focus {
-    background-color: #ffffe0; /* A slightly softer pale yellow for when typing */
+    background-color: #1a1a1a; /* Changes to a very dark grey when you click to type */
     outline: none;
 }
 
