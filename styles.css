@@ -225,3 +225,17 @@ footer {
     background-color: #e5ffe5; /* Slight highlight background to make it pop */
     cursor: default;
 }
+/* --- Retro Guestbook Form Styling --- */
+.retro-input {
+    background-color: #ffffff;
+    border: 2px inset #ffffff;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1rem;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.retro-input:focus {
+    background-color: #ffffcc; /* Classic pale yellow highlight when typing */
+    outline: none;
+}
