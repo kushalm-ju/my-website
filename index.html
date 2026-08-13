@@ -90,8 +90,14 @@
     container.appendChild(renderer.domElement);
 
     // Create the Icosahedron (20-faced polyhedron)
-   const geometry = new THREE.IcosahedronGeometry(1.4, 1);
-const material = new THREE.MeshNormalMaterial({ wireframe: true });
+    const geometry = new THREE.IcosahedronGeometry(1.4, 1);
+    
+    // Updated material for Web 1.0 classic blue wireframe
+    const material = new THREE.MeshBasicMaterial({ 
+        color: 0x0000EE, 
+        wireframe: true 
+    });
+    
     const polyhedron = new THREE.Mesh(geometry, material);
     
     scene.add(polyhedron);
