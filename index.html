@@ -32,7 +32,7 @@
     </div>
 </nav>
 
-<section class="container hero">
+<section class="hero">
     <div>
         <!-- Profile Picture -->
         <img src="profile.jpg" alt="Kushal Mondal" class="profile-pic">
@@ -51,15 +51,15 @@
             This website collects my mathematical research, publications, computational
             projects, and visual explorations of geometric ideas.
         </p>
-
-        <!-- Mathematical Equation Box -->
-        <div class="math-box">
-            \[
-            R(X,Y)Z = \nabla_X\nabla_YZ - \nabla_Y\nabla_XZ - \nabla_{[X,Y]}Z
-            \]
-        </div>
-
+        
         <a class="button" href="research.html">Explore Research</a>
+    </div>
+
+    <!-- Mathematical Equation Box -->
+    <div class="math-box">
+        \[
+        R(X,Y)Z = \nabla_X\nabla_YZ - \nabla_Y\nabla_XZ - \nabla_{[X,Y]}Z
+        \]
     </div>
 
     <!-- 3D Canvas Container -->
@@ -77,11 +77,9 @@
     const container = document.getElementById("geometry-view");
     const scene = new THREE.Scene();
     
-    // Set up the camera
     const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
     camera.position.z = 4;
 
-    // Set up the renderer
     const renderer = new THREE.WebGLRenderer({
         alpha: true,
         antialias: true
@@ -90,12 +88,11 @@
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
-    // Create the Icosahedron (20-faced polyhedron)
     const geometry = new THREE.IcosahedronGeometry(1.4, 1);
     
-    // Updated material for Web 1.0 classic blue wireframe
+    // UPDATED: Bright Phosphor Green for the Terminal look!
     const material = new THREE.MeshBasicMaterial({ 
-        color: 0x0000EE, 
+        color: 0x4af626, 
         wireframe: true 
     });
     
@@ -103,7 +100,6 @@
     
     scene.add(polyhedron);
 
-    // Animation Loop
     function animate() {
         requestAnimationFrame(animate);
         polyhedron.rotation.x += 0.004;
@@ -113,7 +109,6 @@
 
     animate();
 
-    // Make the 3D canvas responsive on window resize
     window.addEventListener("resize", () => {
         if(container.clientWidth > 0 && container.clientHeight > 0) {
             camera.aspect = container.clientWidth / container.clientHeight;
@@ -122,6 +117,7 @@
         }
     });
 </script>
+
 <!-- Link to your external JavaScript file -->
 <script src="script.js"></script>
 </body>
