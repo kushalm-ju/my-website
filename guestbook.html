@@ -21,41 +21,47 @@
     </div>
 </nav>
 
-<section class="container hero">
-    <h1>Sign My Guestbook</h1>
-    <p>
-        Thanks for visiting my corner of the web! Please leave a message below to let me know you stopped by, or feel free to reach out to discuss curvature, tensors, or web design.
-    </p>
+<section class="hero" style="grid-template-columns: 1fr;">
+    
+    <div>
+        <h1>Sign My Guestbook_</h1>
+        <p>
+            Thanks for visiting my corner of the web! Please leave a message below to let me know you stopped by, or feel free to reach out to discuss curvature, tensors, or web design.
+        </p>
+    </div>
 
-    <div class="math-box" style="text-align: left; background-color: #c0c0c0;">
-        <fieldset style="border: 2px groove #ffffff; padding: 20px;">
-            <legend style="font-weight: bold;">[ Add a New Entry ]</legend>
+    <!-- Terminal Form Box -->
+    <div class="math-box">
+        <strong>[ ADD A NEW ENTRY ]</strong>
+        <br><br>
+        
+        <form action="#" method="POST">
+            <p>
+                <label for="name">Name / Alias:</label><br>
+                <input type="text" id="name" name="name" size="40" class="retro-input">
+            </p>
             
-            <form action="#" method="POST">
-                <p>
-                    <label for="name">Name / Alias:</label><br>
-                    <input type="text" id="name" name="name" size="40" class="retro-input">
-                </p>
-                
-                <p>
-                    <label for="email">Email Address (Optional):</label><br>
-                    <input type="email" id="email" name="email" size="40" class="retro-input">
-                </p>
+            <p>
+                <label for="email">Email Address (Optional):</label><br>
+                <input type="email" id="email" name="email" size="40" class="retro-input">
+            </p>
 
-                <p>
-                    <label for="message">Message:</label><br>
-                    <textarea id="message" name="message" rows="6" cols="50" class="retro-input"></textarea>
-                </p>
+            <p>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="6" cols="50" class="retro-input"></textarea>
+            </p>
 
-                <input type="submit" value="Submit Entry" class="button">
-                <input type="reset" value="Clear Form" class="button">
-            </form>
-        </fieldset>
+            <input type="submit" value="Submit Entry" class="button">
+            <input type="reset" value="Clear Form" class="button">
+        </form>
     </div>
 
 </section>
 
-<footer>Designed with HTML, CSS, JavaScript and MathJax.</footer>
+<footer>
+    Designed with HTML, CSS, JavaScript and MathJax. // END OF FILE
+</footer>
+
 <script src="script.js"></script>
 </body>
 </html>
