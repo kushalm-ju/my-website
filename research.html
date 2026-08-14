@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Geometry Portfolio</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to your terminal CSS file -->
+    <link rel="stylesheet" href="styles.css">
 
-<title>Research</title>
-
-<link rel="stylesheet" href="styles.css">
-
-<script>
-window.MathJax={
-tex:{
-inlineMath:[['$','$'],['\\(','\\)']]
-}
-};
-</script>
-
-<script async
-src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
+    <!-- MathJax for rendering LaTeX -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
 <body>
 
 <nav>
@@ -38,113 +32,70 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
         </ul>
     </div>
 </nav>
-<section class="container">
 
-<h1>Research</h1>
+<section class="hero" style="grid-template-columns: 1fr;"> <!-- Forced single column for easy reading -->
+    
+    <div>
+        <h1>Research_</h1>
+        <div class="subtitle">Differential Geometry • Ricci Solitons • Geometric Flows</div>
+    </div>
 
-<div class="card">
+    <!-- Published Papers Terminal Box -->
+    <div class="math-box">
+        <strong>[ PUBLISHED PAPERS ]</strong>
+        <br><br>
+        <ul>
+            <li>
+                <strong>Paper Title</strong><br>
+                Journal Name (Year)
+            </li>
+            <br>
+            <li>
+                <strong>Paper Title</strong><br>
+                Journal Name (Year)
+            </li>
+        </ul>
+    </div>
 
-<span class="badge">
-Published Papers
-</span>
+    <!-- Preprints Terminal Box -->
+    <div class="math-box">
+        <strong>[ PREPRINTS ]</strong>
+        <br><br>
+        <ul>
+            <li><a href="#">Preprint on arXiv</a></li>
+            <li><a href="#">Another arXiv manuscript</a></li>
+        </ul>
+    </div>
 
-<ul class="list">
+    <!-- Research Topics Terminal Box -->
+    <div class="math-box">
+        <strong>[ CURRENT RESEARCH TOPICS ]</strong>
+        <br><br>
+        <ul>
+            <li>Differential Geometry</li>
+            <li>Ricci Solitons</li>
+            <li>Almost Contact Geometry</li>
+            <li>Curvature Tensors</li>
+            <li>Geometric Flows</li>
+            <li>Computational Differential Geometry</li>
+        </ul>
+    </div>
 
-<li>
-
-<strong>Paper Title</strong><br>
-
-Journal Name (Year)
-
-</li>
-
-<li>
-
-<strong>Paper Title</strong><br>
-
-Journal Name (Year)
-
-</li>
-
-</ul>
-
-</div>
-
-<div class="card">
-
-<span class="badge">
-Preprints
-</span>
-
-<ul class="list">
-
-<li>
-
-<a href="#">
-Preprint on arXiv
-</a>
-
-</li>
-
-<li>
-
-<a href="#">
-Another arXiv manuscript
-</a>
-
-</li>
-
-</ul>
-
-</div>
-
-<div class="card">
-
-<span class="badge">
-Current Research Topics
-</span>
-
-<ul class="list">
-
-<li>Differential Geometry</li>
-
-<li>Ricci Solitons</li>
-
-<li>Almost Contact Geometry</li>
-
-<li>Curvature Tensors</li>
-
-<li>Geometric Flows</li>
-
-<li>Computational Differential Geometry</li>
-
-</ul>
-
-</div>
-
-<div class="math-box">
-
-Example identity:
-
-\[
-\operatorname{Ric}(X,Y)=
-\sum_i
-g(R(e_i,X)Y,e_i)
-\]
-
-</div>
+    <!-- Example Identity -->
+    <div class="math-box">
+        \[
+        \operatorname{Ric}(X,Y)= \sum_i g(R(e_i,X)Y,e_i)
+        \]
+    </div>
 
 </section>
 
 <footer>
-
-Research Portfolio
-
+    Research Portfolio // END OF FILE
 </footer>
-<!-- Link to your external JavaScript file -->
-<script src="script.js"></script>
-</body>
-</html>
-</body>
 
+<!-- Link to your external JavaScript file for the hover effect -->
+<script src="script.js"></script>
+
+</body>
 </html>
