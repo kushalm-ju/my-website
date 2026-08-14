@@ -21,23 +21,25 @@
     </div>
 </nav>
 
-<section class="container hero">
-    <h1>Interactive Geometry Sandbox</h1>
-    <div class="subtitle">Computational Rendering • Real-time Topology</div>
-    <p>
-        Select a shape below to update the rendering engine. This sandbox uses Three.js to visualize different topological structures in real-time.
-    </p>
+<section class="hero">
+    <div>
+        <h1>Interactive Geometry Sandbox</h1>
+        <div class="subtitle">Computational Rendering • Real-time Topology</div>
+        <p>
+            Select a shape below to update the rendering engine. This sandbox uses Three.js to visualize different topological structures in real-time.
+        </p>
+    </div>
 
-    <!-- 3D Canvas -->
-    <div id="geometry-view"></div>
-
-    <!-- Web 1.0 Control Panel -->
-    <div class="math-box" style="margin-top: 10px;">
+    <!-- Terminal Control Panel -->
+    <div class="math-box">
         <strong>[ RENDER CONTROLS ]</strong><br><br>
         <button class="button" onclick="changeShape('icosahedron')">Icosahedron</button>
         <button class="button" onclick="changeShape('torus')">Torus (Ring)</button>
         <button class="button" onclick="changeShape('cube')">Hypercube Proj.</button>
     </div>
+
+    <!-- 3D Canvas -->
+    <div id="geometry-view"></div>
 </section>
 
 <footer>Designed with HTML, CSS, JavaScript and MathJax.</footer>
@@ -55,7 +57,8 @@
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
 
-    const material = new THREE.MeshBasicMaterial({ color: 0x0000EE, wireframe: true });
+    // UPDATED: Bright Phosphor Green for the Terminal look
+    const material = new THREE.MeshBasicMaterial({ color: 0x4af626, wireframe: true });
     let currentGeometry = new THREE.IcosahedronGeometry(1.4, 1);
     let polyhedron = new THREE.Mesh(currentGeometry, material);
     scene.add(polyhedron);
@@ -80,6 +83,15 @@
         renderer.render(scene, camera);
     }
     animate();
+
+    // Ensures the 3D canvas scales correctly when resizing the browser
+    window.addEventListener("resize", () => {
+        if(container.clientWidth > 0 && container.clientHeight > 0) {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+    });
 </script>
 </body>
 </html>
