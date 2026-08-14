@@ -34,22 +34,24 @@
 
 <section class="hero">
     
-    <!-- TOP LEFT: Profile Pic, Title, and Profile Data Box -->
-    <div>
-        <img src="profile.jpg" alt="Kushal Mondal" class="profile-pic">
-        <h1>Kushal Mondal</h1>
-        <div class="subtitle">
-            Geometer • Differential Geometry
-        </div>
-        
-        <!-- The profile data box sits neatly under the title on the left -->
-        <div class="math-box">
-            <strong>[ USER PROFILE DATA ]</strong><br><br>
-            STATUS: Research Scholar<br>
-            LOCATION: Jadavpur University<br>
-            PRIMARY_INTEREST: Differential Geometry
-        </div>
+   <!-- TOP LEFT: Profile Pic, Title, and Profile Data Box Grouped Together -->
+<div>
+    <img src="profile.jpg" alt="Kushal Mondal" class="profile-pic">
+    
+    <h1>Kushal Mondal</h1>
+    
+    <div class="subtitle">
+        Geometer • Differential Geometry
     </div>
+    
+    <!-- Because this is inside the same container, it stays perfectly on the left! -->
+    <div class="math-box">
+        <strong>[ USER PROFILE DATA ]</strong><br><br>
+        STATUS: Research Scholar<br>
+        LOCATION: Jadavpur University<br>
+        PRIMARY_INTEREST: Differential Geometry
+    </div>
+</div>
 
     <!-- TOP RIGHT: 3D Canvas Container -->
     <div id="geometry-view" style="grid-column: auto;"></div>
