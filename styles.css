@@ -2,18 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 :root {
-    --bg-color: #080808;
-    --term-green: #4af626;      /* Bright phosphor green */
-    --term-dim: #1a4d13;        /* Dimmer green for borders */
-    --glow: 0 0 10px rgba(74, 246, 38, 0.5); /* Phosphor bleed effect */
-}
-
-* {
-    box-sizing: border-box;
+    --link-blue: #0000EE;
+    --link-visited: #551A8B;
+    --bg-gray: #c0c0c0;
 }
 
 body {
-    background-color: var(--bg-gray);
+    background-color: var(--bg-gray); /* THIS IS WHAT MAKES IT GREY */
     color: #000000;
     font-family: "Times New Roman", Times, serif;
     margin: 20px auto;
@@ -21,12 +16,11 @@ body {
     padding: 0 15px;
     line-height: 1.4;
     
-    /* ADD THESE 3 LINES TO FIX BLURRINESS */
+    /* Anti-blur fixes */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
 }
-
 /* --- CRT Scanline Overlay --- */
 /* This sits on top of everything to make it look like a curved glass screen */
 body::after {
