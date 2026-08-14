@@ -129,7 +129,7 @@ p { font-size: 1.3rem; }
 }
 
 .math-box::before {
-    content: "> EXECUTING TENSOR ANALYSIS...";
+    content: "> EXECUTING...";
     display: block;
     margin-bottom: 15px;
     color: var(--term-dim);
