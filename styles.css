@@ -1,0 +1,238 @@
+/* Import a classic vintage terminal font */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+    --bg-color: #080808;
+    --term-green: #4af626;      /* Bright phosphor green */
+    --term-dim: #1a4d13;        /* Dimmer green for borders */
+    --glow: 0 0 10px rgba(74, 246, 38, 0.5); /* Phosphor bleed effect */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--term-green);
+    font-family: 'VT323', monospace;
+    font-size: 24px; /* Slightly larger for readability */
+    margin: 20px auto;
+    max-width: 1000px; 
+    padding: 0 20px;
+    line-height: 1.4;
+    text-shadow: var(--glow); /* Makes all text glow slightly */
+}
+
+/* --- CRT Scanline Overlay --- */
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    z-index: 999;
+    pointer-events: none; 
+}
+
+/* --- Navigation / Menu UI --- */
+nav {
+    border-bottom: 2px solid var(--term-dim);
+    padding: 10px 0;
+    margin-bottom: 40px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 2.2rem;
+}
+
+.logo::before {
+    content: "root@";
+    opacity: 0.7;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--term-green);
+    text-decoration: none;
+}
+
+nav a::before { content: "[ "; color: var(--term-dim); }
+nav a::after { content: " ]"; color: var(--term-dim); }
+
+nav a:hover {
+    background-color: var(--term-green);
+    color: var(--bg-color);
+    text-shadow: none;
+}
+
+/* --- Hero Section & Layout --- */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .hero { grid-template-columns: 1fr 1fr; }
+}
+
+.profile-pic {
+    width: 140px;
+    height: auto;
+    border: 1px solid var(--term-green);
+    /* Turns a standard photo into a green monochrome graphic */
+    filter: sepia(100%) hue-rotate(70deg) saturate(300%) contrast(150%) brightness(80%);
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0 0 10px 0;
+    font-weight: normal;
+}
+
+h1::after {
+    content: "_"; /* Blinking terminal cursor */
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    border-left: 4px solid var(--term-dim);
+    padding-left: 15px;
+}
+
+p { font-size: 1.3rem; }
+
+/* --- Mathematical HUD Element --- */
+.math-box {
+    border: 1px dashed var(--term-green);
+    padding: 20px;
+    margin: 30px 0;
+    text-align: left;
+    overflow-x: auto;
+    grid-column: 1 / -1; /* Spans across the whole grid */
+}
+
+.math-box::before {
+    content: "> EXECUTING...";
+    display: block;
+    margin-bottom: 15px;
+    color: var(--term-dim);
+}
+
+.math-box mjx-container {
+    color: var(--term-green) !important;
+}
+
+/* --- Command Prompt Buttons --- */
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    border: 1px solid var(--term-green);
+    background-color: transparent;
+    color: var(--term-green);
+    text-decoration: none;
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1.2rem;
+}
+
+.button::before { content: "C:\\> RUN "; }
+
+.button:hover {
+    background-color: var(--term-green);
+    color: var(--bg-color);
+    text-shadow: none;
+}
+
+/* --- 3D Canvas Styling --- */
+#geometry-view {
+    width: 100%;
+    height: 450px;
+    border: 1px solid var(--term-dim);
+    position: relative;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8); 
+    grid-column: 1 / -1;
+}
+
+#geometry-view::before {
+    content: "USER MODEM LINK ESTABLISHED\nBAUD RATE: 9600\nSIMULATION ACTIVE";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 1.2rem;
+    white-space: pre-wrap;
+    z-index: 10;
+    pointer-events: none;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px dashed var(--term-dim);
+    margin-top: 50px;
+    color: var(--term-dim);
+    grid-column: 1 / -1;
+}
+
+/* --- Interactive Word Hover Effect --- */
+.hover-word:hover {
+    color: var(--bg-color); 
+    background-color: var(--term-green); 
+    text-shadow: none;
+    cursor: crosshair; /* Changes mouse to a targeting crosshair */
+}
+
+/* --- Retro Guestbook Form Styling --- */
+.retro-input {
+    background-color: var(--bg-color); 
+    color: var(--term-green); 
+    border: 1px solid var(--term-dim);
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+    padding: 8px;
+    margin-top: 5px;
+    text-shadow: var(--glow);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.retro-input:focus {
+    border-color: var(--term-green); 
+    outline: none;
+    box-shadow: 0 0 10px var(--term-dim);
+}
+
+/* --- Landing Page CTA Button --- */
+.landing-cta {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 15px;
+    margin-top: 20px;
+    border: 2px solid var(--term-green);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(74, 246, 38, 0.5); }
+    70% { box-shadow: 0 0 15px 15px rgba(74, 246, 38, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 246, 38, 0); }
+}
