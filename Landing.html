@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name - Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Custom CSS just to center this specific page -->
+    <style>
+        .landing-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+        }
+        .landing-cta {
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            margin-top: 30px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(74, 246, 38, 0.7); }
+            70% { box-shadow: 0 0 15px 15px rgba(74, 246, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(74, 246, 38, 0); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Notice there is NO <nav> menu here! -->
+
+<section class="landing-container">
+    
+    <h1>Project_Name</h1>
+    <div class="subtitle" style="border: none; padding: 0;">
+        A brief, punchy description of what this specific project does.
+    </div>
+
+    <!-- The Hero Visual (You could put a 3D canvas or image here) -->
+    <div class="math-box" style="width: 100%; max-width: 600px; margin: 40px auto; text-align: center;">
+        <img src="your-image.jpg" alt="Project Preview" style="max-width: 100%; border: 1px solid var(--term-green);">
+    </div>
+
+    <!-- The Features -->
+    <p style="max-width: 600px; margin: 0 auto;">
+        > Feature 1: Real-time tensor analysis.<br>
+        > Feature 2: Browser-based rendering.<br>
+        > Feature 3: Open-source geometry library.
+    </p>
+
+    <!-- The Single Call to Action -->
+    <a href="projects.html" class="button landing-cta">INITIALIZE SEQUENCE</a>
+
+</section>
+
+</body>
+</html>
