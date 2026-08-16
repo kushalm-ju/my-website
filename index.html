@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Portfolio</title>
+    
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- MathJax for rendering LaTeX -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">Geometry</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="links.html">Links</a></li>
+            <li><a href="guestbook.html">Guestbook</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    
+    <!-- TOP LEFT: Profile Pic, Title, and Profile Data Box Grouped Together -->
+    <div>
+        <img src="profile.jpg" alt="Kushal Mondal" class="profile-pic">
+        
+        <h1>Kushal Mondal</h1>
+        
+        <div class="subtitle">
+            Geometer • Differential Geometry
+        </div>
+        
+        <div class="math-box">
+            <strong>[ USER PROFILE DATA ]</strong><br><br>
+            <!-- Replace the bracketed text below with your exact lines -->
+            [ Your Status Line ]<br>
+            [ Your Location Line ]<br>
+            [ Your Primary Interest Line ]
+        </div>
+
+        <!-- THE NEW PULSING LANDING PAGE BUTTON -->
+        <a href="research.html" class="button landing-cta">ACCESS RESEARCH_DATA</a>
+    </div>
+
+    <!-- TOP RIGHT: 3D Canvas Container -->
+    <div id="geometry-view" style="grid-column: auto;"></div>
+
+    <!-- BOTTOM FULL-WIDTH: Your Write-Up -->
+    <div style="grid-column: 1 / -1; margin-top: 20px;">
+        <p>
+            > I am a Research Scholar at Jadavpur University, where I completed both my bachelor's and master's degrees. I began my PhD in August 2024 and am currently pursuing my research in the field of differential geometry.
+        </p>
+
+        <p>
+            > My academic interests include contact geometry, spacetime geometry, geometric flows, solitons, and differential geometry more broadly. I have a strong enthusiasm for learning and exploring new ideas, particularly those that deepen our understanding of geometric structures and their applications.
+        </p>
+
+        <p>
+            > This website serves as a platform to document and showcase my academic and research journey, including my ongoing work, publications, interests, and future developments. I invite you to explore the <a href="research.html" class="hover-word">Research</a> section to learn more about my current and past work.
+        </p>
+
+        <p>
+            > I am always interested in connecting with researchers, students, and others who share an interest in geometry and related areas. If you find any aspect of my work interesting, I would be glad to discuss ideas, exchange perspectives, and explore opportunities for academic collaboration.
+        </p>
+
+        <p>
+            > As this website will continue to evolve alongside my academic journey, I will be adding new research, projects, resources, and other academic materials over time. I warmly welcome your comments, suggestions, and constructive feedback, which I hope will help make this platform more useful and engaging. Thank you for visiting, and I hope you find something of interest here.
+        </p>
+    </div>
+</section>
+
+<footer>
+    Website designed by Kushal.
+</footer>
+
+<!-- Three.js Library and Script -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script>
+    const container = document.getElementById("geometry-view");
+    const scene = new THREE.Scene();
+    
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+    camera.position.z = 4;
+
+    const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true
+    });
+    
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    container.appendChild(renderer.domElement);
+
+    const geometry = new THREE.IcosahedronGeometry(1.4, 1);
+    
+    const material = new THREE.MeshBasicMaterial({ 
+        color: 0x4af626, 
+        wireframe: true 
+    });
+    
+    const polyhedron = new THREE.Mesh(geometry, material);
+    
+    scene.add(polyhedron);
+
+    function animate() {
+        requestAnimationFrame(animate);
+        polyhedron.rotation.x += 0.004;
+        polyhedron.rotation.y += 0.006;
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+        if(container.clientWidth > 0 && container.clientHeight > 0) {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        }
+    });
+</script>
+
+<!-- Link to your external JavaScript file -->
+<script src="script.js"></script>
+</body>
+</html>
