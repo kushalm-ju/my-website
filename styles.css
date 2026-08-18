@@ -219,3 +219,24 @@ footer {
     outline: none;
     box-shadow: 0 0 10px var(--term-dim);
 }
+
+/* --- Fix Link Overlap and Style Text Links --- */
+.math-box {
+    position: relative;
+    z-index: 10; /* Brings the text box to the front so links are clickable */
+}
+
+a.hover-word {
+    color: var(--term-green);
+    text-decoration: underline;
+    position: relative;
+    z-index: 20; /* Forces the link to the very front */
+    cursor: pointer;
+}
+
+a.hover-word:hover {
+    color: #ffffff;
+    background-color: var(--term-green);
+    text-decoration: none;
+    padding: 0 4px;
+}
