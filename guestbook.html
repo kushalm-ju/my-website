@@ -1,95 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Guestbook - Geometry Portfolio</title>
-    <link rel="stylesheet" href="styles.css?v=2">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=3">
 </head>
 
 <body>
 
-<nav>
-    <div class="nav-container">
-        <div class="logo">Geometry</div>
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
+    <nav>
+        <div class="nav-container">
 
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="links.html">Links</a></li>
-            <li><a href="guestbook.html">Guestbook</a></li>
-        </ul>
-    </div>
-</nav>
+            <div class="logo">Geometry</div>
 
-<section class="hero" style="grid-template-columns: 1fr;">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="links.html">Links</a></li>
+                <li><a href="guestbook.html">Guestbook</a></li>
+            </ul>
 
-    <div>
-        <h1>Sign My Guestbook</h1>
+        </div>
+    </nav>
 
-        <p>
-            Thanks for visiting my corner of the web! Please leave a message
-            below to let me know you stopped by, or feel free to reach out to me.
-        </p>
-    </div>
 
-    <!-- Terminal Form Box -->
-<div class="math-box">
-    <strong>[ ADD A NEW ENTRY ]</strong>
-    <br><br>
-    
-    <!-- We added display: none; so it stays hidden until the form is sent! -->
-    <div data-fs-success style="display: none; color: #ffffff; text-shadow: none; margin-bottom: 15px;">
-        > TRANSMISSION SUCCESSFUL. GUESTBOOK ENTRY RECORDED.
-    </div>
-    
-    <!-- TEMPORARY LOCAL FIX: We added the action attribute back so it works from your desktop -->
-    <form id="guestbook-form" action="https://formspree.io/f/maewabla" method="POST">
-        <p>
-            <label for="name">Name / Alias:</label><br>
-            <input type="text" id="name" name="name" size="40" class="retro-input" data-fs-field>
-            <span data-fs-error="name" style="color: red; font-size: 1rem;"></span>
-        </p>
-        
-        <p>
-            <label for="email">Email Address (Optional):</label><br>
-            <input type="email" id="email" name="email" size="40" class="retro-input" data-fs-field>
-            <span data-fs-error="email" style="color: red; font-size: 1rem;"></span>
-        </p>
+    <!-- =========================================================
+         GUESTBOOK CONTENT
+         ========================================================= -->
+    <section class="hero guestbook-page">
 
-        <p>
-            <label for="message">Message:</label><br>
-            <textarea id="message" name="message" rows="6" cols="50" class="retro-input" data-fs-field required></textarea>
-            <span data-fs-error="message" style="color: red; font-size: 1rem;"></span>
-        </p>
+        <!-- Introduction -->
+        <div>
 
-        <input type="submit" value="Submit Entry" class="button" data-fs-submit-btn>
-        <input type="reset" value="Clear Form" class="button">
-    </form>
-</div>
-</section>
+            <h1>Sign My Guestbook</h1>
 
-<!-- Formspree AJAX Integration -->
-<script>
-    window.formspree = window.formspree || function () {
-        (formspree.q = formspree.q || []).push(arguments);
-    };
+            <p>
+                Thanks for visiting my corner of the web!
+                Please leave a message below to let me know you stopped by,
+                or feel free to reach out to me.
+            </p>
 
-    formspree('initForm', {
-        formElement: '#guestbook-form',
-        formId: 'maewabla'
-    });
-</script>
+        </div>
 
-<script
-    src="https://unpkg.com/@formspree/ajax@1"
-    defer>
-</script>
 
-<!-- External JavaScript -->
-<script src="script.js"></script>
+        <!-- =====================================================
+             GUESTBOOK FORM
+             ===================================================== -->
+        <div class="math-box guestbook-box">
+
+            <strong>[ ADD A NEW ENTRY ]</strong>
+
+            <br><br>
+
+
+            <!-- =================================================
+                 SUCCESS MESSAGE
+
+                 This is hidden initially.
+                 Formspree can use this later.
+                 ================================================= -->
+            <div
+                data-fs-success
+                class="success-message"
+            >
+                &gt; TRANSMISSION SUCCESSFUL.
+                GUESTBOOK ENTRY RECORDED.
+            </div>
+
+
+            <!-- =================================================
+                 FORM
+
+                 Formspree is temporarily commented out.
+
+                 Once we confirm that the fields display correctly,
+                 we can enable Formspree again.
+                 ================================================= -->
+
+            <form
+                id="guestbook-form"
+                action="https://formspree.io/f/maewabla"
+                method="POST"
+            >
+
+                <!-- NAME -->
+                <div class="form-group">
+
+                    <label for="name">
+                        Name / Alias:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        class="retro-input"
+                        placeholder="Enter your name..."
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address (Optional):
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        class="retro-input"
+                        placeholder="Enter your email..."
+                    >
+
+                </div>
+
+
+                <!-- MESSAGE -->
+                <div class="form-group">
+
+                    <label for="message">
+                        Message:
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        class="retro-input"
+                        rows="6"
+                        placeholder="Write your message..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+                <div class="form-buttons">
+
+                    <button
+                        type="submit"
+                        class="button"
+                    >
+                        Submit Entry
+                    </button>
+
+                    <button
+                        type="reset"
+                        class="button"
+                    >
+                        Clear Form
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+    <footer>
+        Website designed by Kushal. // END OF FILE
+    </footer>
+
+
+    <!-- =========================================================
+         FORMSPREE AJAX
+
+         TEMPORARILY COMMENTED OUT.
+
+         DO NOT DELETE THIS.
+         We can enable it after confirming the form works.
+
+    <script>
+        window.formspree = window.formspree || function () {
+            (formspree.q = formspree.q || []).push(arguments);
+        };
+
+        formspree('initForm', {
+            formElement: '#guestbook-form',
+            formId: 'maewabla'
+        });
+    </script>
+
+    <script
+        src="https://unpkg.com/@formspree/ajax@1"
+        defer>
+    </script>
+
+    ========================================================= -->
+
+
+    <!-- =========================================================
+         YOUR EXTERNAL JAVASCRIPT
+
+         TEMPORARILY COMMENTED OUT.
+
+         DO NOT DELETE THIS.
+         We will enable it again later if needed.
+
+    <script src="script.js"></script>
+
+    ========================================================= -->
+
 
 </body>
+
 </html>
