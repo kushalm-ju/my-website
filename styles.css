@@ -214,22 +214,24 @@ p { font-size: 1.3rem; }
 
 /* --- Retro Guestbook Form Styling --- */
 .retro-input {
-    background-color: var(--bg-color); 
+    background-color: #111111; /* Slightly lighter than the background so you can see the box */
     color: var(--term-green); 
-    border: 1px solid var(--term-dim);
+    border: 1px solid var(--term-green); /* Changed to bright green so it stands out */
     font-family: 'VT323', monospace;
     font-size: 1.3rem;
-    padding: 8px;
+    padding: 10px;
     margin-top: 5px;
+    margin-bottom: 15px;
     text-shadow: var(--glow);
     width: 100%;
     box-sizing: border-box;
 }
 
 .retro-input:focus {
-    border-color: var(--term-green); 
+    background-color: #000000;
+    border: 2px solid var(--term-green); 
     outline: none;
-    box-shadow: 0 0 10px var(--term-dim);
+    box-shadow: 0 0 15px var(--term-green); /* Makes the box glow brightly when you click into it */
 }
 
 footer {
