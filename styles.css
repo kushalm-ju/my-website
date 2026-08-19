@@ -20,6 +20,17 @@ body {
     text-shadow: var(--glow); /* Makes all text glow slightly */
 }
 
+body,
+body p,
+body div,
+body span,
+body h1,
+body h2,
+body h3,
+body li {
+    text-decoration: none;
+}
+
 /* --- CRT Scanline Overlay --- */
 body::after {
     content: " ";
@@ -65,7 +76,7 @@ nav ul {
 
 nav a {
     color: var(--term-green);
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 nav a::before { content: "[ "; color: var(--term-dim); }
@@ -186,15 +197,14 @@ p { font-size: 1.3rem; }
 /* --- Interactive Text Links --- */
 .hover-word {
     color: var(--term-green) !important;
-    text-decoration: underline !important;
+    text-decoration: none !important;
     position: relative;
-    z-index: 10000 !important; 
-    cursor: pointer !important; 
+    z-index: 10000 !important;
+    cursor: pointer !important;
     padding: 2px 4px;
     border-radius: 2px;
     transition: background-color 0.1s, color 0.1s;
 }
-
 .hover-word:hover {
     color: var(--bg-color) !important;
     background-color: var(--term-green) !important;
