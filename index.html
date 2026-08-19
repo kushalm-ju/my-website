@@ -1,118 +1,252 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geometry Portfolio</title>
-    
-    <link rel="stylesheet" href="styles.css?v=2">
 
-    <!-- MathJax for rendering LaTeX -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']]
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<html lang="en"> <head>     <meta charset="UTF-8">     <meta name="viewport" content="width=device-width, initial-scale=1.0">     <title>Geometry Portfolio</title>
+
+```
+<link rel="stylesheet" href="styles.css?v=3">
+
+<!-- MathJax for rendering LaTeX -->
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+    };
+</script>
+
+<script
+    id="MathJax-script"
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+```
+
 </head>
+
 <body>
 
-<nav>
-    <div class="nav-container">
-        <div class="logo">Geometry</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="links.html">Links</a></li>
-            <li><a href="guestbook.html">Guestbook</a></li>
-        </ul>
+<nav>     <div class="nav-container">
+
+```
+    <div class="logo">
+        Geometry
     </div>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="links.html">Links</a></li>
+        <li><a href="guestbook.html">Guestbook</a></li>
+    </ul>
+
+</div>
+```
+
 </nav>
 
 <section class="hero">
-    
-    <!-- TOP LEFT: Profile Pic, Title, and Profile Data Box -->
-    <div>
-        <img src="profile.jpg" alt="Kushal Mondal" class="profile-pic">
-        
-        <h1>Kushal Mondal</h1>
-        
-        <div class="subtitle">
-            Geometer • Differential Geometry
-        </div>
-        
-        <div class="math-box">
-            <strong>[ USER PROFILE DATA ]</strong><br><br>
-            <!-- Replace the bracketed text below with your exact lines -->
-            Research Scholar<br>
-            Jadavpur University<br>
-            Riemannian and semi-Riemannian geometry
-        </div>
 
-        <!-- THE PULSING LANDING PAGE BUTTON -->
-        <a href="about.html" class="button landing-cta">ABOUT_ME</a>
+```
+<!-- =====================================================
+     LEFT SIDE: PROFILE / TERMINAL IDENTITY
+     ===================================================== -->
+<div class="landing-profile">
+
+    <img
+        src="profile.jpg"
+        alt="Kushal Mondal"
+        class="profile-pic"
+    >
+
+    <h1>
+        Kushal Mondal
+    </h1>
+
+    <div class="subtitle">
+        Research Scholar<br>
+        Differential Geometry<br>
+        Jadavpur University
     </div>
 
-    <!-- TOP RIGHT: 3D Canvas Container -->
-    <div id="geometry-view" style="grid-column: auto;"></div>
+
+    <!-- Terminal status -->
+    <div class="terminal-status">
+
+        <div>
+            &gt; INITIALIZING GEOMETRY_INTERFACE...
+        </div>
+
+        <div>
+            &gt; SYSTEM STATUS: ONLINE
+        </div>
+
+    </div>
+
+
+    <!-- Profile information -->
+    <div class="math-box">
+
+        <strong>[ USER PROFILE DATA ]</strong>
+
+        <br><br>
+
+        Research Scholar
+        <br>
+
+        Jadavpur University
+        <br>
+
+        Riemannian and semi-Riemannian geometry
+
+    </div>
+
+
+    <!-- About Me -->
+    <a
+        href="about.html"
+        class="button landing-cta">
+        ABOUT_ME
+    </a>
+
+</div>
+
+
+<!-- =====================================================
+     RIGHT SIDE: 3D CANVAS
+     ===================================================== -->
+<div
+    id="geometry-view"
+    style="grid-column: auto;">
+</div>
+```
 
 </section>
 
+<!-- =========================================================
+     EMPTY FOOTER
+     ========================================================= -->
+
 <footer>
-    Website designed by Kushal.
 </footer>
 
-<!-- Three.js Library and Script -->
+<!-- =========================================================
+     THREE.JS
+     ========================================================= -->
+
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
 <script>
-    const container = document.getElementById("geometry-view");
-    const scene = new THREE.Scene();
-    
-    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+
+    const container =
+        document.getElementById("geometry-view");
+
+    const scene =
+        new THREE.Scene();
+
+    const camera =
+        new THREE.PerspectiveCamera(
+            45,
+            container.clientWidth /
+            container.clientHeight,
+            0.1,
+            100
+        );
+
     camera.position.z = 4;
 
-    const renderer = new THREE.WebGLRenderer({
-        alpha: true,
-        antialias: true
-    });
-    
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    container.appendChild(renderer.domElement);
+    const renderer =
+        new THREE.WebGLRenderer({
+            alpha: true,
+            antialias: true
+        });
 
-    const geometry = new THREE.IcosahedronGeometry(1.4, 1);
-    
-    const material = new THREE.MeshBasicMaterial({ 
-        color: 0x4af626, 
-        wireframe: true 
-    });
-    
-    const polyhedron = new THREE.Mesh(geometry, material);
-    
+    renderer.setSize(
+        container.clientWidth,
+        container.clientHeight
+    );
+
+    container.appendChild(
+        renderer.domElement
+    );
+
+    /* -----------------------------------------------------
+       ICOSAHEDRON
+       ----------------------------------------------------- */
+
+    const geometry =
+        new THREE.IcosahedronGeometry(
+            1.4,
+            1
+        );
+
+    const material =
+        new THREE.MeshBasicMaterial({
+            color: 0x4af626,
+            wireframe: true
+        });
+
+    const polyhedron =
+        new THREE.Mesh(
+            geometry,
+            material
+        );
+
     scene.add(polyhedron);
 
+    /* -----------------------------------------------------
+       ANIMATION
+       ----------------------------------------------------- */
+
     function animate() {
+
         requestAnimationFrame(animate);
+
         polyhedron.rotation.x += 0.004;
         polyhedron.rotation.y += 0.006;
-        renderer.render(scene, camera);
+
+        renderer.render(
+            scene,
+            camera
+        );
     }
 
     animate();
 
-    window.addEventListener("resize", () => {
-        if(container.clientWidth > 0 && container.clientHeight > 0) {
-            camera.aspect = container.clientWidth / container.clientHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(container.clientWidth, container.clientHeight);
+    /* -----------------------------------------------------
+       RESPONSIVE CANVAS
+       ----------------------------------------------------- */
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            if (
+                container.clientWidth > 0 &&
+                container.clientHeight > 0
+            ) {
+
+                camera.aspect =
+                    container.clientWidth /
+                    container.clientHeight;
+
+                camera.updateProjectionMatrix();
+
+                renderer.setSize(
+                    container.clientWidth,
+                    container.clientHeight
+                );
+            }
+
         }
-    });
+    );
+
 </script>
 
-<!-- Link to your external JavaScript file -->
+<!-- External JavaScript -->
+
 <script src="script.js"></script>
+
 </body>
 </html>
