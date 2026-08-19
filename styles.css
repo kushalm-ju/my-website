@@ -184,19 +184,22 @@ p { font-size: 1.3rem; }
 }
 
 /* --- Interactive Text Links --- */
-a.hover-word {
-    color: var(--term-green);
-    text-decoration: underline;
+.hover-word {
+    color: var(--term-green) !important;
+    text-decoration: underline !important;
     position: relative;
-    z-index: 20; 
-    cursor: pointer; /* Forces the hand cursor so you know it is clickable */
+    z-index: 10000 !important; 
+    cursor: pointer !important; 
+    padding: 2px 4px;
+    border-radius: 2px;
+    transition: background-color 0.1s, color 0.1s;
 }
 
-a.hover-word:hover {
-    color: #ffffff;
-    background-color: var(--term-green);
-    text-decoration: none;
-    padding: 0 4px;
+.hover-word:hover {
+    color: var(--bg-color) !important;
+    background-color: var(--term-green) !important;
+    text-decoration: none !important;
+    text-shadow: none !important;
 }
 
 /* --- Retro Guestbook Form Styling --- */
