@@ -32,37 +32,49 @@
     </div>
 
     <!-- Terminal Form Box -->
-    <div class="math-box">
-        <strong>[ ADD A NEW ENTRY ]</strong>
-        <br><br>
-        
-        <form action="#" method="POST">
-            <p>
-                <label for="name">Name / Alias:</label><br>
-                <input type="text" id="name" name="name" size="40" class="retro-input">
-            </p>
-            
-            <p>
-                <label for="email">Email Address (Optional):</label><br>
-                <input type="email" id="email" name="email" size="40" class="retro-input">
-            </p>
-
-            <p>
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="6" cols="50" class="retro-input"></textarea>
-            </p>
-
-            <input type="submit" value="Submit Entry" class="button">
-            <input type="reset" value="Clear Form" class="button">
-        </form>
+<div class="math-box">
+    <strong>[ ADD A NEW ENTRY ]</strong>
+    <br><br>
+    
+    <!-- This message will appear automatically when the email is sent -->
+    <div data-fs-success style="color: #ffffff; text-shadow: none; margin-bottom: 15px;">
+        > TRANSMISSION SUCCESSFUL. GUESTBOOK ENTRY RECORDED.
     </div>
+    
+    <form id="guestbook-form">
+        <p>
+            <label for="name">Name / Alias:</label><br>
+            <input type="text" id="name" name="name" size="40" class="retro-input" data-fs-field>
+            <span data-fs-error="name" style="color: red; font-size: 1rem;"></span>
+        </p>
+        
+        <p>
+            <label for="email">Email Address (Optional):</label><br>
+            <input type="email" id="email" name="email" size="40" class="retro-input" data-fs-field>
+            <span data-fs-error="email" style="color: red; font-size: 1rem;"></span>
+        </p>
 
+        <p>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="6" cols="50" class="retro-input" data-fs-field required></textarea>
+            <span data-fs-error="message" style="color: red; font-size: 1rem;"></span>
+        </p>
+
+        <input type="submit" value="Submit Entry" class="button" data-fs-submit-btn>
+        <input type="reset" value="Clear Form" class="button">
+    </form>
+</div>
 </section>
 
-<footer>
-    Designed with HTML, CSS, JavaScript and MathJax. // END OF FILE
-</footer>
+    <!-- Formspree AJAX Integration -->
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#guestbook-form', formId: 'maewabla' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
+<!-- Link to your external JavaScript file -->
 <script src="script.js"></script>
 </body>
 </html>
+
