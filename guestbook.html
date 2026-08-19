@@ -8,7 +8,7 @@
     <title>Guestbook - Geometry Portfolio</title>
 
     <!-- Main stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=5">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
 
 
     <!-- =========================================================
-         GUESTBOOK CONTENT
+         GUESTBOOK
          ========================================================= -->
     <section class="hero guestbook-page">
 
@@ -54,7 +54,7 @@
 
 
         <!-- =====================================================
-             GUESTBOOK FORM
+             GUESTBOOK FORM BOX
              ===================================================== -->
         <div class="math-box guestbook-box">
 
@@ -66,27 +66,30 @@
             <!-- =================================================
                  SUCCESS MESSAGE
 
-                 This is hidden initially.
-                 Formspree can use this later.
+                 Formspree automatically displays this after
+                 successful submission.
                  ================================================= -->
             <div
                 data-fs-success
                 class="success-message"
             >
-                &gt; TRANSMISSION SUCCESSFUL.
-                GUESTBOOK ENTRY RECORDED.
+                <div class="success-line">
+                    &gt; TRANSMISSION SUCCESSFUL.
+                </div>
+
+                <div class="success-line">
+                    &gt; GUESTBOOK ENTRY RECORDED.
+                </div>
+
+                <div class="success-line">
+                    &gt; THANK YOU FOR VISITING.
+                </div>
             </div>
 
 
             <!-- =================================================
                  FORM
-
-                 Formspree is temporarily commented out.
-
-                 Once we confirm that the fields display correctly,
-                 we can enable Formspree again.
                  ================================================= -->
-
             <form
                 id="guestbook-form"
                 action="https://formspree.io/f/maewabla"
@@ -106,7 +109,13 @@
                         name="name"
                         class="retro-input"
                         placeholder="Enter your name..."
+                        data-fs-field
                     >
+
+                    <span
+                        data-fs-error="name"
+                        class="field-error"
+                    ></span>
 
                 </div>
 
@@ -124,7 +133,13 @@
                         name="email"
                         class="retro-input"
                         placeholder="Enter your email..."
+                        data-fs-field
                     >
+
+                    <span
+                        data-fs-error="email"
+                        class="field-error"
+                    ></span>
 
                 </div>
 
@@ -143,9 +158,22 @@
                         rows="6"
                         placeholder="Write your message..."
                         required
+                        data-fs-field
                     ></textarea>
 
+                    <span
+                        data-fs-error="message"
+                        class="field-error"
+                    ></span>
+
                 </div>
+
+
+                <!-- FORM-LEVEL ERROR -->
+                <div
+                    data-fs-error
+                    class="form-error"
+                ></div>
 
 
                 <!-- BUTTONS -->
@@ -154,6 +182,7 @@
                     <button
                         type="submit"
                         class="button"
+                        data-fs-submit-btn
                     >
                         Submit Entry
                     </button>
@@ -178,13 +207,20 @@
          FOOTER
          ========================================================= -->
     <footer>
-        Note: If you wish to connect with me or have a discussion, then input your email ID correctly. 
+        Website designed by Kushal. // END OF FILE
     </footer>
 
+
+    <!-- =========================================================
+         FORMSPREE AJAX
+         ========================================================= -->
+
     <script>
-        window.formspree = window.formspree || function () {
-            (formspree.q = formspree.q || []).push(arguments);
-        };
+        window.formspree =
+            window.formspree ||
+            function () {
+                (formspree.q = formspree.q || []).push(arguments);
+            };
 
         formspree('initForm', {
             formElement: '#guestbook-form',
@@ -201,14 +237,12 @@
     <!-- =========================================================
          YOUR EXTERNAL JAVASCRIPT
 
-         TEMPORARILY COMMENTED OUT.
+         KEEP COMMENTED OUT FOR NOW.
+         ========================================================= -->
 
-         DO NOT DELETE THIS.
-         We will enable it again later if needed.
-
+    <!--
     <script src="script.js"></script>
-
-    ========================================================= -->
+    -->
 
 
 </body>
