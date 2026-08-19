@@ -135,9 +135,11 @@ p { font-size: 1.3rem; }
     padding: 20px;
     margin: 30px 0;
     text-align: left;
-    overflow-x: auto;
-    position: relative; /* Fixes visibility for interactive text */
-    z-index: 10;
+
+    position: relative;
+    z-index: 1000;
+
+    overflow: visible;
 }
 
 .math-box::before {
@@ -213,25 +215,49 @@ p { font-size: 1.3rem; }
 }
 
 /* --- Retro Guestbook Form Styling --- */
+
 .retro-input {
-    background-color: #111111; /* Slightly lighter than the background so you can see the box */
-    color: var(--term-green); 
-    border: 1px solid var(--term-green); /* Changed to bright green so it stands out */
-    font-family: 'VT323', monospace;
-    font-size: 1.3rem;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    text-shadow: var(--glow);
+    display: block;
     width: 100%;
     box-sizing: border-box;
+
+    background-color: #111111;
+    color: var(--term-green);
+
+    border: 1px solid var(--term-green);
+
+    font-family: 'VT323', monospace;
+    font-size: 1.3rem;
+
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+
+    text-shadow: var(--glow);
+
+    opacity: 1;
+    visibility: visible;
+}
+
+.retro-input::placeholder {
+    color: var(--term-dim);
+    opacity: 1;
 }
 
 .retro-input:focus {
     background-color: #000000;
-    border: 2px solid var(--term-green); 
+    color: var(--term-green);
+
+    border: 2px solid var(--term-green);
+
     outline: none;
-    box-shadow: 0 0 15px var(--term-green); /* Makes the box glow brightly when you click into it */
+
+    box-shadow: 0 0 15px var(--term-green);
+}
+
+#guestbook-form {
+    position: relative;
+    z-index: 1001;
 }
 
 footer {
