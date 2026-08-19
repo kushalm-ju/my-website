@@ -37,93 +37,39 @@
     </div>
 
     <!-- Terminal Form Box -->
-    <div class="math-box">
-
-        <strong>[ ADD A NEW ENTRY ]</strong>
-        <br><br>
-
-        <!-- Success message -->
-        <div
-            data-fs-success
-            style="display: none; color: #ffffff; text-shadow: none; margin-bottom: 15px;"
-        >
-            &gt; TRANSMISSION SUCCESSFUL. GUESTBOOK ENTRY RECORDED.
-        </div>
-
-        <form id="guestbook-form">
-
-            <p>
-                <label for="name">Name / Alias:</label><br>
-
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    size="40"
-                    class="retro-input"
-                    data-fs-field
-                >
-
-                <span
-                    data-fs-error="name"
-                    style="color: red; font-size: 1rem;"
-                ></span>
-            </p>
-
-            <p>
-                <label for="email">Email Address (Optional):</label><br>
-
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    size="40"
-                    class="retro-input"
-                    data-fs-field
-                >
-
-                <span
-                    data-fs-error="email"
-                    style="color: red; font-size: 1rem;"
-                ></span>
-            </p>
-
-            <p>
-                <label for="message">Message:</label><br>
-
-                <textarea
-                    id="message"
-                    name="message"
-                    rows="6"
-                    cols="50"
-                    class="retro-input"
-                    data-fs-field
-                    required
-                ></textarea>
-
-                <span
-                    data-fs-error="message"
-                    style="color: red; font-size: 1rem;"
-                ></span>
-            </p>
-
-            <input
-                type="submit"
-                value="Submit Entry"
-                class="button"
-                data-fs-submit-btn
-            >
-
-            <input
-                type="reset"
-                value="Clear Form"
-                class="button"
-            >
-
-        </form>
-
+<div class="math-box">
+    <strong>[ ADD A NEW ENTRY ]</strong>
+    <br><br>
+    
+    <!-- We added display: none; so it stays hidden until the form is sent! -->
+    <div data-fs-success style="display: none; color: #ffffff; text-shadow: none; margin-bottom: 15px;">
+        > TRANSMISSION SUCCESSFUL. GUESTBOOK ENTRY RECORDED.
     </div>
+    
+    <!-- TEMPORARY LOCAL FIX: We added the action attribute back so it works from your desktop -->
+    <form id="guestbook-form" action="https://formspree.io/f/maewabla" method="POST">
+        <p>
+            <label for="name">Name / Alias:</label><br>
+            <input type="text" id="name" name="name" size="40" class="retro-input" data-fs-field>
+            <span data-fs-error="name" style="color: red; font-size: 1rem;"></span>
+        </p>
+        
+        <p>
+            <label for="email">Email Address (Optional):</label><br>
+            <input type="email" id="email" name="email" size="40" class="retro-input" data-fs-field>
+            <span data-fs-error="email" style="color: red; font-size: 1rem;"></span>
+        </p>
 
+        <p>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="6" cols="50" class="retro-input" data-fs-field required></textarea>
+            <span data-fs-error="message" style="color: red; font-size: 1rem;"></span>
+        </p>
+
+        <input type="submit" value="Submit Entry" class="button" data-fs-submit-btn>
+        <input type="reset" value="Clear Form" class="button">
+    </form>
+</div>
 </section>
 
 <!-- Formspree AJAX Integration -->
